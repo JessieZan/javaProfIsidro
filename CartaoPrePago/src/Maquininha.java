@@ -4,7 +4,7 @@ public class Maquininha {
 	public static void main(String[] args) {
 		
 		Cartao c1, c2;
-		CartaoCashBack ccb1, ccb2;
+		Cartao ccb1, ccb2;
 		
 
 		c1 = new Cartao("123 456 789", "Jéssica Vargas Zanchetta", 22, 12);

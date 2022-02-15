@@ -2,11 +2,11 @@ import java.util.Scanner;
 public class Cartao {
 	
 	Scanner teclado = new Scanner(System.in);
-	private String numeroCartao;
-	private String nomeTitular;
-	private int anoValidade;
-	private int mesValidade;
-	private double saldo;
+	protected String numeroCartao;
+	protected String nomeTitular;
+	protected int anoValidade;
+	protected int mesValidade;
+	protected double saldo;
 	
 	
 	public String getNumeroCartao() {
@@ -45,9 +45,6 @@ public class Cartao {
 		return saldo;
 	}
 	
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
 	
 	public Cartao(String numeroCartao, String nomeTitular, int anoValidade, int mesValidade) {
 		super();
