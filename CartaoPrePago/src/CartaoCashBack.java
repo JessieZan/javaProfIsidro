@@ -21,20 +21,22 @@ public class CartaoCashBack extends Cartao{
 	
 
 	@Override
-	public boolean comprar() {
-		double valor = teclado.nextDouble();
+	public boolean comprar(double valor) {
+
 		int tipo = this.tipo;
-		
+		if(valor <= super.saldo){
 		if (tipo == 0) {
-			saldo += valor*0.02;
+			super.saldo += valor*0.02;
 			return true;
 		} else if(tipo == 1) {
-			saldo += valor*0.05;
+			super.saldo += valor*0.05;
 			return true;
 		} else if(tipo == 2) {
-			saldo += valor*0.08;
+			super.saldo += valor*0.08;
 			return true;
+		}	
 		}
+		
 		return false;		
 	}
 

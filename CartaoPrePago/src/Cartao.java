@@ -59,8 +59,8 @@ public class Cartao {
 		saldo += valor;
 	}
 	
-	public boolean comprar() {
-		double valor = teclado.nextDouble();
+	public boolean comprar(double valor) {
+		 
 		if (valor <= saldo) {
 			saldo -= valor;
 			return true;
