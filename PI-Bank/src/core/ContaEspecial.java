@@ -2,7 +2,7 @@ package core;
 
 public class ContaEspecial extends Conta {
 
-	double limite;
+	protected double limite;
 
 	public ContaEspecial(String nomeTitular, String cpf, int numeroConta, float saldo, double limite) {
 		super(nomeTitular, cpf, numeroConta, saldo);
@@ -17,10 +17,7 @@ public class ContaEspecial extends Conta {
 				+ ", getSaldo()=" + getSaldo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 	
-	public void creditar(double valor) {
-		saldo += valor;
-	}
-	
+	@Override
 	public boolean debitar(double valor) {
 		if (valor <= saldo) {
 			saldo -= valor;
