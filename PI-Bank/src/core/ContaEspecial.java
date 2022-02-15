@@ -25,18 +25,12 @@ public class ContaEspecial extends Conta {
 		if (valor <= saldo) {
 			saldo -= valor;
 			return true;
-		} else if(valor > saldo) {
-			
-			if(valor <= limite+saldo) {
-				saldo = 0;
-				limite = valor - saldo;
-				return true;
-			} else if(valor > limite + saldo){
-				return false;
-			}
-			
+		} else if(valor <= limite+saldo) {
+			saldo -= valor;
+			return true;
+		} 
 				
-		}
+		
 	return false;
 	
 	}
