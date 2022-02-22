@@ -1,5 +1,7 @@
 package core;
 
+import core.exception.ContaException;
+
 public class Conta {
 	protected String nomeTitular;
 	protected String cpf;
@@ -27,10 +29,17 @@ public class Conta {
 
 
 	public void creditar(double valor) {
+		
+		if (valor <= 0) {
+			throw new ContaException("O valor nao pode ser negativo ou zero!");
+		}
 		saldo += valor;
 	}
 	
 	public boolean debitar(double valor) {
+		if (valor <= 0) {
+			throw new ContaException("O valor nao pode ser negativo ou zero!");
+		}
 		if (valor <= saldo) {
 			saldo -= valor;
 			return true;

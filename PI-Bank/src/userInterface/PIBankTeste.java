@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import core.Conta;
 import core.ContaEspecial;
+import core.exception.ContaException;
 
 public class PIBankTeste {
 	public static void main(String[] args) {
@@ -25,8 +26,11 @@ public class PIBankTeste {
 			System.out.println("1-Creditar/2-Debitar/3-Info/0-Encerra");
 			opcao = scan.nextInt();
 			
+			
+			try {
 			switch(opcao) {
-			case 1:
+			
+				case 1:
 				System.out.println("Digite o valor para creditar");
 				valor = scan.nextDouble();
 				if(tipoDeConta == 1) {
@@ -75,8 +79,12 @@ public class PIBankTeste {
 				break;
 			}
 			
-		} while (opcao != 0);
 		
+			} catch(ContaException e){
+				System.err.println("Erro de Regra de Negócio:" +e.getMessage());
+			}
+			
+		} while (opcao != 0);
 		
 		
 		scan.close();

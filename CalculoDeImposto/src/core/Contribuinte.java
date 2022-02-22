@@ -1,9 +1,9 @@
 package core;
 
 public class Contribuinte {
-    protected static String nome;
-	protected static String endereco;
-	protected static int numeroCadastral;
+    protected String nome;
+	protected String endereco;
+	protected int numeroCadastral;
 
 
 
@@ -24,6 +24,8 @@ public class Contribuinte {
             ", numeroCadastral='" + getNumeroCadastral() + "'" +
             "}";
     }
+    
+    
 
 
     public String getNome() {
@@ -50,4 +52,18 @@ public class Contribuinte {
         this.numeroCadastral = numeroCadastral;
     }
 
+
+	public String calculaImposto(double valor) {
+		
+		return "";
+	}
+
+
+
+	public double getArrecadacao() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
+

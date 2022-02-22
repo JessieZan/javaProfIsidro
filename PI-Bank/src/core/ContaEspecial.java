@@ -1,8 +1,10 @@
 package core;
 
+import core.exception.ContaException;
+
 public class ContaEspecial extends Conta {
 
-	protected double limite;
+	double limite;
 
 	public ContaEspecial(String nomeTitular, String cpf, int numeroConta, float saldo, double limite) {
 		super(nomeTitular, cpf, numeroConta, saldo);
@@ -17,26 +19,33 @@ public class ContaEspecial extends Conta {
 				+ ", getSaldo()=" + getSaldo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 	
-	@Override
+	public void creditar(double valor) {
+		if (valor <= 0) {
+			throw new ContaException("O valor nao pode ser negativo ou zero!");
+		}
+		saldo += valor;
+	}
+	
 	public boolean debitar(double valor) {
+		if (valor <= 0) {
+			throw new ContaException("O valor nao pode ser negativo ou zero!");
+		}
 		if (valor <= saldo) {
 			saldo -= valor;
 			return true;
-		} else if(valor <= limite+saldo) {
-			saldo -= valor;
-			return true;
-		} 
+		} else if(valor > saldo) {
+			
+			if(valor <= limite+saldo) {
+				saldo = 0;
+				limite = valor - saldo;
+				return true;
+			} else if(valor > limite + saldo){
+				return false;
+			}
+			
 				
+		}
 	return false;
 	
 	}
-
-	public double getLimite() {
-		return this.limite;
-	}
-
-	public void setLimite(double limite) {
-		this.limite = limite;
-	}
-
 	}
